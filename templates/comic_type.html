@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+<ul style="margin-left:13.5%;">
+    {% for type in type %}
+    <li style="float:left;padding:20px">
+        <a href="{{type.comictype_id}}">
+            {{type.comictype_name}}
+        </a>
+    </li>
+    {% endfor %}
+</ul><br/>
+<div style="clear:both;margin-left:13.5%;margin-right:13.5%">
+    {% for comic in contacts %}
+    <div style="display:inline-block;padding-left:20px">
+        <img style="width:120px;height:180;" src="{{MEDIA_URL}}{{comic.comic_pic}}"><br/>
+        <a href="{% url 'comic:ComicDetail' comic.comic_id %}">{{comic.comic_name}}</a><br/>
+        <a>作者：{{comic.comic_author}}</a>
+    </div>
+    {% endfor%}
+</div>
+<div class="pagination" >
+    <span class="step-links" style="margin-left:13.5%">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

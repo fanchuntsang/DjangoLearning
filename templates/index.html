@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <title>Home</title>
+    <link href="static/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="static/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Hero UI Kit Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+
+
+
+
+
+
+    </script>
+    <!-- //Custom Theme files -->
+
+    <script type="text/javascript" src="static/js/script.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <!-- js -->
+    <script src="static/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="static/js/bootstrap-3.1.1.min.js"></script>
+    <!--timer-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="static/js/jClocksGMT.js"></script>
+    <script src="static/js/jquery.rotate.js"></script>
+    <link rel="stylesheet" href="static/css/jClocksGMT.css">
+    <style>
+            body { font-family: Arial, sans-serif; }
+
+
+
+
+
+
+
+    </style>
+    <script>
+            $(document).ready(function(){
+                $('#clock_hou').jClocksGMT({offset: '-5', hour24: true});
+                $('#clock_dc').jClocksGMT({offset: '-4', digital: false});
+                $('#clock_india').jClocksGMT({offset: '+5.5'});
+            });
+
+
+
+
+
+
+
+    </script>
+    <!--/timer-->
+    <!-- video -->
+    <link href="static/css/jplayer.blue.monday.min.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="static/js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+
+	$("#jquery_jplayer_1").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				title: "Big Buck Bunny",
+				m4v: "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v",
+				poster: "/static/images/vid.png"
+			});
+		},
+		swfPath: "../../dist/jplayer",
+		supplied: "m4v",
+		size: {
+			width: "379px",
+			height: "250px",
+			cssClass: "jp-video-360p"
+		},
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		toggleDuration: true
+	});
+});
+//]]>
+
+
+
+
+
+
+
+    </script>
+    <!-- //video -->
+    <!--Calender -->
+    <link rel="stylesheet" href="static/css/clndr.css" type="text/css"/>
+    <script src="static/js/underscore-min.js"></script>
+    <script src="static/js/moment-2.2.1.js"></script>
+    <script src="static/js/clndr.js"></script>
+    <script src="static/js/site.js"></script>
+    <!--End Calender-->
+    <script src="static/js/Chart.js"></script>
+    <!--form-scroll-->
+    <link href="static/css/form.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- the jScrollPane script -->
+    <script type="text/javascript" src="static/js/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" id="sourcecode">
+			$(function()
+			{
+				$('.scroll-pane').jScrollPane();
+			});
+
+
+
+
+
+
+
+    </script>
+    <!-- //the jScrollPane script -->
+    <!-- the mousewheel plugin -->
+    <script type="text/javascript" src="static/js/jquery.mousewheel.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/fd-slider.css">
+    <script type="text/javascript" src="static/js/fd-slider.js"></script>
+    <!-- start-smoth-scrolling-->
+    <script type="text/javascript" src="static/js/easing.js"></script>
+    <script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+			});
+		});
+
+
+
+
+
+
+
+    </script>
+    <!--//end-smoth-scrolling-->
+
+
+</head>
+<body>
+<!-- content -->
+<div class="top-header">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="logo">
+                        <a href="index.html"><img src="static/images/logo.png" alt=""/></a>
+                    </div>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/news">资讯<span class="sr-only">(current)</span></a></li>
+                        <li><a href="/novel">小说</a></li>
+                        <li><a href="/comic">漫画</a></li>
+                    </ul>
+                    <div class="search">
+                        <form action="{% url 'search:search_qidian' %}" methos="get">
+                            <input type="text" name="keyWord" id="keyWord" autocomplete=off required
+                                   placeholder="仅支持搜索小说">
+                            <button type="submit" class="btn btn-default" aria-label="Left Align">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+
+                        </form>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if request.user.is_authenticated %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">{{request.user}}</a>
+                            <ul class="dropdown-menu">
+                                <li><a href={% url "profile" %}>Profile</a></li>
+                                <!--<li><a href={% url "login" %}>Sign in</a></li>-->
+                                <!--<li><a href="#">Settings</a></li>-->
+                                <li><a href={% url "logout" %}>Logout</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">请登录</a>
+                            <ul class="dropdown-menu">
+                                <!--<li><a href="#">Profile</a></li>-->
+                                <li><a href={% url "login" %}>Sign in</a></li>
+                                <!--<li><a href="#">Settings</a></li>-->
+                                <!--<li><a href={% url "logout" %}>Logout</a></li>-->
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</div>
+<script src="/static/js/bootstrap.js"></script>
+<!--banner-->
+<div class="banner">
+    <div class="container">
+        <script src="static/js/responsiveslides.min.js"></script>
+        <script>
+		$(function () {
+		  $("#slider").responsiveSlides({
+			auto: false,
+			nav: true,
+			speed: 500,
+			namespace: "callbacks",
+			pager: true,
+		  });
+		});
+
+
+
+
+
+
+
+        </script>
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <div class="banner1">
+                            <div class="banner-grids">
+                                <div class="banner-text">
+                                    <div class="tag">
+                                        <h4><a href="#">闪电侠</a></h4>
+                                    </div>
+                                    <div class="bnr-info">
+                                        <h1>闪电侠是科幻小说的英雄</h1>
+                                        <p>闪电侠（The Flash）是美国DC漫画旗下超级英雄，初次登场于《闪电侠漫画》（Flash
+                                            Comics）第1期（1940年1月）。在DC漫画史中曾有多位角色曾使用过闪电侠这一称号。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner2">
+                            <div class="banner-grids2">
+                                <div class="bnr2-top">
+                                    <h3>绿灯侠</h3>
+                                    <h4>Green Lantern</h4>
+                                </div>
+                                <div class="bnr2-text">
+                                    <p>绿灯侠（Green
+                                        Lantern）是美国DC漫画旗下一群超级英雄的总称。绿灯侠都拥有一个能量戒指与充电用的能量提灯，只要使用者拥有足够的意志力与精力，就可以根据想像将戒指中的能量变成实物、操控现实世界中的物体。</p>
+                                </div>
+                                <div class="dot">
+                                    <img src="static/images/dot.png" alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!----->
+    </div>
+</div>
+<!--content-->
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
+<div class="content">
+    <div class="container">
+        <div class="content-left">
+
+            <div style="clear:both;background-color:black;border-radius:30px">
+                <p style="margin-left:40%;font-size:20px;color:white;">热门漫画</p>
+                {% for comic in comic %}
+                <div style="display:inline-block;padding-left:20px">
+                    <img style="width:120px;height:180;" src="{{MEDIA_URL}}{{comic.comic_pic}}"><br/>
+                    <a href="{% url 'comic:ComicDetail' comic.comic_id %}">{{comic.comic_name}}</a><br/>
+                </div>
+                {% endfor%}
+            </div>
+        </div>
+
+
+        <div class="content-right">
+            <div class="posts-grids">
+                <h3>最新资讯</h3>
+                {% for news in news %}
+                <div class="post-grid1">
+                    <div class="post-pic">
+                    </div>
+                    <div class="post-pic-text">
+                        <h5><a href={% url "news:NewsDetail" news.news_id %}>{{news.news_title}}</a></h5>
+                        <p>{{news.news_briefr}}</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="followers-sec">
+                <section class="sky-form">
+                    <h4>热门小说</h4>
+                    <div class="row row1 scroll-pane">
+                        <div class="col col-4">
+                            {% for novel in novel %}
+                            <div class="follow-grid">
+                                <div class="flw-pic">
+                                    <img src="{{MEDIA_URL}}{{novel.novel_pic}}" class="img-responsive" alt=""/>
+                                </div>
+                                <h3 class="folw-name"><a style="text-decoration:none;color:white;"
+                                                         href="{% url 'novel:NovelDetail' novel.novel_id %}">{{novel.novel_name}}</a>
+                                </h3>
+                                                                <div class="clearfix"></div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </section>
+    </div>
+    <div class="clearfix"></div>
+    <!---->
+
+    <!---->
+
+
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="copywrite">
+    <div class="container">
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

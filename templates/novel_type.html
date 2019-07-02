@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+<ul style="margin-left:13.5%;">
+    {% for type in type %}
+    <li style="float:left;padding:20px">
+        <a href="{{type.noveltype_id}}">
+            {{type.noveltype_name}}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+<br/>
+<div style="clear:both;margin-left:13.5%;margin-right:13.5%">
+    {% for novel in novel %}
+    <div style="display:inline-block;padding-left:20px">
+        <!--<a href="{% url 'novel:NovelDetail' novel.novel_id %}">{{novel.novel_name}}</a><br />-->
+        <img style="width:120px;height:180;" src="{{MEDIA_URL}}{{novel.novel_pic}}"><br/>
+        <a href="{% url 'novel:NovelDetail' novel.novel_id %}">{{novel.novel_name}}</a> <br/>
+        <span>作者：{{novel.novel_author}}</span>
+    </div>
+    {% endfor%}
+</div>
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block body %}
+<!-- FILTER -->
+<div id="news_detail" style="text-align:center;margin-left:13.5%;margin-right:13.5%;">
+    <h3>{{news.news_title}}</h3>
+    <span>作者：{{news.news_author}}</span><span>&nbsp&nbsp&nbsp</span><span>点击量：{{news.news_clickNum}}</span><br />
+    <a href="{% url 'news:newsCollect'%}?news_id={{news.news_id}}">{{flag}}</a>
+    {{news.news_content | safe}}
+</div>
+<div id="main-container-menu" class="object">
+    <div class="container-menu">
+
+        <div id="main-cross">
+            <div id="cross-menu"></div>
+        </div>
+
+        <div id="main-small-logo">
+            <div class="small-logo"></div>
+        </div>
+
+        <div id="main-premium-ressource">
+            <div class="premium-ressource"><a href="#">Premium Resources</a></div>
+        </div>
+
+        <div id="main-themes">
+            <div class="themes"><a href="#">Latest themes</a></div>
+        </div>
+
+        <div id="main-psd">
+            <div class="psd"><a href="#">PSD Goodies</a></div>
+        </div>
+
+        <div id="main-ai">
+            <div class="ai"><a href="#">Illustrator freebies</a></div>
+        </div>
+
+        <div id="main-font">
+            <div class="font"><a href="#">Free fonts</a></div>
+        </div>
+
+        <div id="main-photo">
+            <div class="photo"><a href="#">Free stock photos</a></div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- PORTFOLIO -->
+
+<div id="wrapper-container">
+
+    <div class="container object">
+
+        <div id="main-container-image">
+
+            <div class="title-item">
+                <div class="title-icon"></div>
+                <div class="title-text">评论:</div>
+                <div class="title-text-2">注意文明哟</div>
+            </div>
+
+
+            <div class="work">
+                <!--<figure class="white">-->
+                <!--<img src="/static/images/psd-4.jpg" alt="" />-->
+                <!--<div id="wrapper-part-info">-->
+                <!--<div class="part-info-image-single">-->
+                <!--<img src="/static/images/mockup-1.jpg" alt="" width="628" height="437"/>-->
+                <!--<img src="/static/images/mockup-2.jpg" alt="" width="628" height="437"/>-->
+                <!--<img src="/static/images/mockup-3.jpg" alt="" width="628" height="437"/>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</figure>-->
+
+                <!--<div class="wrapper-text-description">-->
+
+                <!--<div class="wrapper-view">-->
+                <!--<div class="icon-view"><img src="/static/images/icon-eye.svg" alt="" width="24" height="16"/></div>-->
+                <!--<div class="text-view">2,451 views</div>-->
+                <!--</div>-->
+
+                <!--<div class="wrapper-file">-->
+                <!--<div class="icon-file"><img src="/static/images/icon-psdfile.svg" alt="" width="21" height="21"/></div>-->
+                <!--<div class="text-file">Photoshop</div>-->
+                <!--</div>-->
+
+                <!--<div class="wrapper-weight">-->
+                <!--<div class="icon-weight"><img src="/static/images/icon-weight.svg" alt="" width="20" height="23"/></div>-->
+                <!--<div class="text-weight">23 Mo</div>-->
+                <!--</div>-->
+
+                <!--<div class="wrapper-desc">-->
+                <!--<div class="icon-desc"><img src="/static/images/icon-desc.svg" alt="" width="24" height="24"/></div>-->
+                <!--<div class="text-desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </div>-->
+                <!--</div>-->
+
+                <!--<div class="wrapper-download">-->
+                <!--<div class="icon-download"><img src="/static/images/icon-download.svg" alt="" width="19" height="26"/></div>-->
+                <!--<div class="text-download"><a href="#"><b>Download</b></a></div>-->
+                <!--</div>-->
+
+                <!--<div class="wrapper-morefrom">-->
+                <!--<div class="text-morefrom">More from .psd</div>-->
+                <!--<div class="image-morefrom">-->
+                <!--<a href="#"><div class="image-morefrom-1"><img src="/static/images/psd-1.jpg" alt="" width="430" height="330"/></div></a>-->
+                <!--<a href="#"><div class="image-morefrom-2"><img src="/static/images/psd-2.jpg" alt="" width="430" height="330"/></div></a>-->
+                <!--<a href="#"><div class="image-morefrom-3"><img src="/static/images/psd-3.jpg" alt="" width="430" height="330"/></div></a>-->
+                <!--<a href="#"><div class="image-morefrom-4"><img src="/static/images/psd-6.jpg" alt="" width="430" height="330"/></div></a>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                {% for comment in comment %}
+                <div class="post-reply">
+                    <div class="name-reply-post">{{comment.user}}</div>
+                    <div class="text-reply-post">{{comment.comment_content}}</div>
+                </div>
+                {% endfor %}
+
+
+                <div class="post-send">
+                    <div id="main-post-send">
+                        <div id="title-post-send">Add your comment</div>
+                        <form id="contact" method="post" action="/news/NewsComment/">{% csrf_token %}
+                            <input type="hidden" name="newsid" value="{{news.news_id}}"/>
+                            <input type="hidden" name="ctype" value="1"/>
+                            <fieldset>
+                                <input type="text" size="100" id="message" name="comment" maxlength="500"
+                                       placeholder="请留言" tabindex="5" cols="30" rows="4"></input>
+                            </fieldset>
+                            <div style="text-align:center;"><input type="submit" name="envoi" value="Envoyer"/></div>
+                        </form>
+<!--                        {% if messages %}-->
+<!--                        <script>-->
+<!--            {% for message in messages %}-->
+<!--                alert('{{ message }}');-->
+<!--            {% endfor %}-->
+
+                        </script>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="wrapper-thank">
+    <div class="thank">
+        <div class="thank-text">谢谢观看</div>
+    </div>
+</div>
+
+{% endblock %}

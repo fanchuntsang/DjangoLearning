@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}
+<div id="main" style='background-image:url("/static/images/bg.jpg")'>
+<p>搜索结果:</p>
+{% for key,value in result.items %}
+<a href="{{value}}">{{key}}</a><br />
+{% endfor %}
+{% endblock %}
+</div>

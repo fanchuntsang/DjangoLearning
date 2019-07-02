@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div>
+    {% for news in contacts %}
+    <a style="font-size:20px;text-decoration:none;margin-left:13.5%" href="{% url 'news:NewsDetail' news.news_id %}">{{news.news_title}}</a><br/>
+    {% endfor%}
+    <div class="pagination" >
+    <span class="step-links" style="margin-left:13.5%">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+
+
+{% endblock %}

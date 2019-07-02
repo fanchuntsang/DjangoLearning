@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body %}
+<div style='background-image:url("/static/images/bg.jpg");margin-left:13.5%;margin-right:13.5%;'>
+    <div id="main" style="">
+        <h4 style="color:white">我的用户名:{{username}}</h4>
+        <div id="news_collect" >
+            <h3 style="color:white">资讯收藏:</h3>
+            {% for news_collect in news_collect %}
+            <a style="color:white" href={% url "news:NewsDetail" news_collect.collect_in_id %}>{{news_collect.collect_name}}</a>
+            <a class="btn btn-default" href={% url "news:newsCollect" %}?news_id={{news_collect.collect_in_id}}>取消收藏</a>
+            <br/>
+            {% endfor%}
+        </div>
+
+        <div id="novel_collect">
+            <h3 style="color:white">小说收藏:</h3>
+            {% for novel_collect in novel_collect %}<br/>
+            <a style="color:white" href={% url "novel:NovelDetail" novel_collect.collect_in_id %}>{{novel_collect.collect_name}}</a>
+            <a class="btn btn-default" href={% url "novel:novelCollect" %}?novel_id={{novel_collect.collect_in_id}}>取消收藏</a>
+            <br/>
+            {% endfor%}
+        </div>
+
+        <div id="comic_collect" >
+            <h3 style="color:white">漫画收藏:</h3>
+            {% for comic_collect in comic_collect %}<br/>
+            <a style="color:white" href={% url "comic:ComicDetail" comic_collect.collect_in_id %}>{{comic_collect.collect_name}}</a>
+            <a class="btn btn-default" href={% url "comic:comicCollect" %}?comic_id={{comic_collect.collect_in_id}}>取消收藏</a>
+            <br/>
+            {% endfor%}
+        </div>
+
+        <div id="comment">
+            <h3 style="color:white">评论:</h3><br/>
+            {% for comment in comment %}
+            <p style="color:white">{{comment.comment_content}}<a class="btn btn-default" href={% url "deleteComment" %}?commentId={{comment.comment_id}}>删除</a></p><br/>
+            {% endfor%}
+            {% endblock %}
+        </div>
+    </div>
+</div>
